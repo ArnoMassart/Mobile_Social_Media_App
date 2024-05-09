@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84556798768",
+    "project_id": "socious-social-app",
+    "storage_bucket": "socious-social-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84556798768:android:4628afc50c6812fe4746f5",
+        "android_client_info": {
+          "package_name": "com.example.social_media_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXTRR0O8Qax5bWCeleOWQpwk6ZFgY2uyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
