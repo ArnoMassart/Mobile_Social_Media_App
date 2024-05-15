@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media_app/components/my_list_tile.dart';
+
+import '../components/my_back_button.dart';
 
 class UsersPage extends StatelessWidget {
   const UsersPage({super.key});
@@ -7,13 +10,6 @@ class UsersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text("Users"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        elevation: 0,
-        foregroundColor: Theme.of(context).colorScheme.primary,
-      ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("Users").snapshots(),
         builder: (context, snapshot) {
@@ -35,17 +31,35 @@ class UsersPage extends StatelessWidget {
 
           final users = snapshot.data!.docs;
 
-          return ListView.builder(
-            itemCount: users.length,
-            itemBuilder: (context, index) {
-              // get individual user
-              final user = users[index];
+          return Column(
+            children: [
+              // back button
+              const Padding(
+                padding: EdgeInsets.all(25.0),
+                child: Row(
+                  children: [
+                    MyBackButton(),
+                  ],
+                ),
+              ),
 
-              return ListTile(
-                title: Text(user['username']),
-                subtitle: Text(user['email']),
-              );
-            },
+              // list of users in the app
+              Expanded(
+                child: ListView.builder(
+                  itemCount: users.length,
+                  padding: const EdgeInsets.all(0),
+                  itemBuilder: (context, index) {
+                    // get individual user
+                    final user = users[index];
+
+                    String username = user['username'];
+                    String email = user['email'];
+
+                    return MyListTile(title: username, subtitle: email);
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),

@@ -23,14 +23,14 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthGate(),
+      home: const AuthGate(),
       theme: lightMode,
       darkTheme: darkMode,
       routes: {
-        '/login_register_page': (context) => LoginOrRegister(),
+        '/login_register_page': (context) => const LoginOrRegister(),
         '/home_page': (context) => HomePage(),
-        '/profile_page': (context) => ProfilePage(),
-        '/users_page': (context) => UsersPage(),
+        '/profile_page': (context) => const ProfilePage(),
+        '/users_page': (context) => const UsersPage(),
       },
     );
   }

@@ -50,8 +50,8 @@ class _ProfilePageState extends State<ProfilePage> {
               return Column(
                 children: [
                   // back button
-                  Padding(
-                    padding: const EdgeInsets.all(25.0),
+                  const Padding(
+                    padding: EdgeInsets.all(25.0),
                     child: Row(
                       children: [
                         MyBackButton(),
